@@ -1,8 +1,8 @@
 // CSCI-40 Final Project
-// Author: [Your Name Here]
+// Author: Gerardo Reyna Gomez ... p
 
 /* 
- * Description:
+ * Description: This project will be able to find a desired contact.
  *
 */
 
