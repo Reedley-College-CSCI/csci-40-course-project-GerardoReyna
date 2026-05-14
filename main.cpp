@@ -1,5 +1,5 @@
 // CSCI-40 Final Project
-// Author: Gerardo Reyna...
+// Author: Gerardo Reyna... this is a test
 
 /* 
  * Description: This project will be able to find a desired contact. Mainly by 
