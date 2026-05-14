@@ -1,5 +1,5 @@
 // CSCI-40 Final Project
-// Author: Gerardo Reyna... this is a test
+// Author: Gerardo Reyna... 
 
 /* 
  * Description: This project will be able to find a desired contact. Mainly by 
@@ -22,26 +22,43 @@ struct Contacts {
     string category;
 };
 
+bool checkIfFam(const string& category) {
+    return (category == "Sister" ||
+        category == "Wife" ||
+        category == "Younger Brother" ||
+        category == "Older Brother" ||
+        category == "Cousin");
+}
+
 
 int main() {
     // Contact list
-    vector <Contacts> directory = {
+    const int ALL_CONTACTS = 24;
+    Contacts directory[TOTAL_CONTACTS] = {
         {"Burnice White", "467-333-9122", "Sister"},
         {"Jane Doe", "559-100-3456", "Wife"},
         {"Grace Howard", "559-100-3456", "Close Friend"},
         {"Emily Williams", "559-010-5678", "College Friend"},
-        {"David Johnson", "559-010-9012", "Brother"},       
+        {"David Johnson", "559-010-9012", "Younger Brother"},       
         {"Jessica Taylor", "559-070-7890", "Old Supervisor"},
         {"Chris Evans", "559-111-8899", "Childhood Friend"},
         {"Amanda White", "559-100-3456", "Next Door Neighbor"},
         {"Linda Martinez", "559-100-3456", "Co-worker"},
         {"James Wilson", "559-100-3456", "Cousin"},       
         {"Dr. Alan Gonzalez", "559-100-3456", "Current Doctor"},
-        {"Anthony Ruiz", "559-100-3456", "Landlord"},
+        {"Anthony Ruiz", "559-100-3456", "Old Landlord"},
         {"Jayden Lee", "559-100-3456", "Mechanic"},
         {"Seth Rogan", "559-100-3456", "Friend"},
         {"Michael Ruiz", "559-666-8887", "Friend"},
         {"Jason Johnson", "559-522-6556", "Older Brother"},
+        {"Marcus Higgins", "559-123-4567", "Old Colleague"},
+        {"Luis Torres", "555-987-6543", "Best College friend"},
+        {"Leo Ramirez", "555-246-8135", "Childhood Friend"},
+        {"Brenda Patel", "559-522-6556", "Current Property Manager"},
+        {"Kevin Brien", "559-522-6556", "Statistics Colleague"},
+        {"Alia Khan", "559-522-6556", "Childhood Neighbor"},
+        {"Elizabeth Jenkins", "559-522-6556", "Sister-In-Law"},
+        {"Alex Sterling", "555-159-3570", "Music Video Acquaintance"},
     };
 
     cout << "--------------- Easy Contact Finder ---------------\n" << endl;
@@ -55,7 +72,7 @@ int main() {
         searchLetter[0] = toupper(searchLetter[0]);
     }
 
-    vector <Contacts> firstResults;
+     <Contacts> firstResults;
     for (const auto& person : directory) {
         if (person.name.substr(0, 1) == searchLetter) {
             firstResults.push_back(person);
