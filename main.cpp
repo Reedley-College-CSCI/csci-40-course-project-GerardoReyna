@@ -34,7 +34,7 @@ bool checkIfFam(const string& category) {
 int main() {
     // Contact list
     const int ALL_CONTACTS = 24;
-    Contacts directory[TOTAL_CONTACTS] = {
+    Contacts directory[ALL_CONTACTS] = {
         {"Burnice White", "467-333-9122", "Sister"},
         {"Jane Doe", "559-100-3456", "Wife"},
         {"Grace Howard", "559-100-3456", "Close Friend"},
@@ -84,7 +84,7 @@ int main() {
     bool found = false;
     for (int i = 0; i < ALL_CONTACTS; ++i) {
         if (!directory[i].name.empty() && directory[i].name.substr(0, 1) == searchLetter) {
-            bool isFamily = checkIsFamily(directory[i].category);
+            bool isFamily = checkIfFam(directory[i].category);
             if (familyMem == 'Y' && isFamily) {
                 cout << "Matching Contacts: " << directory[i].name << " : " << directory[i].phone
                     << " : " << directory[i].category << endl;
@@ -93,8 +93,9 @@ int main() {
         
 
     
-            else if (familyMem == "N" && !isFamily) {
-                cout << "->  " directory[i].name << " : " << directory[i].category << endl;
+            else if (familyMem == 'N' && !isFamily) {
+                cout << "->  " << directory[i].name << " : " << directory[i].phone << " : " << 
+                directory[i].category << endl;
                 found = true;
             }
         }
