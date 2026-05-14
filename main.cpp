@@ -72,35 +72,37 @@ int main() {
         searchLetter[0] = toupper(searchLetter[0]);
     }
 
-     <Contacts> firstResults;
-    for (const auto& person : directory) {
-        if (person.name.substr(0, 1) == searchLetter) {
-            firstResults.push_back(person);
-        }
-    }
-
+    
     // Category Searching 
+    char familyMem;
     cout << "Are you looking for a Family member? (Y for YES/N for NO): ";
-    string familyMem;
     cin >> familyMem;
+    familyMem = toupper(familyMem);
+
 
     cout << "\n--------------- Search Results ---------------\n";
     bool found = false;
-    for (const auto& person : firstResults) {
-        if (familyMem == "Y" && person.category == "Family") {
-            cout << "All Possible Matches: " << person.name << " : "
-            << person.phone << " : " << person.category << endl;
-            found = true;
-        }
-        else if (familyMem == "N") {
-            cout << "->  " << person.name << " : " << person.phone 
-            << " : " << person.category << endl;
-            found = true;
+    for (int i = 0; i < ALL_CONTACTS; ++i) {
+        if (!directory[i].name.empty() && directory[i].name.substr(0, 1) == searchLetter) {
+            bool isFamily = checkIsFamily(directory[i].category);
+            if (familyMem == 'Y' && isFamily) {
+                cout << "Matching Contacts: " << directory[i].name << " : " << directory[i].phone
+                    << " : " << directory[i].category << endl;
+                found = true;
+            }
+        
+
+    
+            else if (familyMem == "N" && !isFamily) {
+                cout << "->  " directory[i].name << " : " << directory[i].category << endl;
+                found = true;
+            }
         }
     }
 
-    if (!found) cout << "No contacts in the system match your search!!!\n";
-
+    if (!found) {
+        cout << "No contacts in the system match your search!!!\n";
+    }
 
 
 
